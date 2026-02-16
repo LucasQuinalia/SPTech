@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Digite o nome da sua rua/avenida/vila:</span>
+    <input type="text" id="ipt_nome_endereco">
+    <br>
+    <span>Digite o número da sua casa:</span>
+    <input type="text" id="ipt_numero_casa">
+    <br>
+    <button onclick="exibirAlerta()">Onde eu moro</button>
+</body>
+</html>
+<script>
+    function exibirAlerta() {
+        alert("Seu logradouro é " + ipt_nome_endereco.value);
+        alert("O número do seu logradrouro é " + ipt_numero_casa.value);
+    }
+</script>

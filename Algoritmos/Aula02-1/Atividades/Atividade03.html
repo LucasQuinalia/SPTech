@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Digite o nome do seu time:</span>
+    <input type="text" id="ipt_nome_time">
+    <br>
+    <span>Digite a quantidade de títulos que o clube possui:</span>
+    <input type="text" id="ipt_quantidade_titulos">
+    <br>
+    <button onclick="exibirAlerta()">Amo meu time</button>
+</body>
+</html>
+<script>
+    function exibirAlerta() {
+        alert("O time " + ipt_nome_time.value + " tem " + ipt_quantidade_titulos.value + " títulos");
+    }
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Digite o nome da sua cidade natal:</span>
+    <input type="text" id="ipt_cidade_natal">
+    <br>
+    <span>Digite o seu ano de nascimento:</span>
+    <input type="text" id="ipt_ano_nascimento">
+    <br>
+    <button onclick="exibirAlerta()">Cadastrar</button>
+</body>
+</html>
+<script>
+    function exibirAlerta() {
+        alert("Você nasceu na cidade de " + ipt_cidade_natal.value + " em " + ipt_ano_nascimento.value);
+    }
+</script>
