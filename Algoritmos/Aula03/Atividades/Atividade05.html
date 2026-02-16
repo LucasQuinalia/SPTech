@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o nome do aluno:</p>
+    <input type="text" id="ipt_nome">
+    <p>Insira a nota da avaliação continuada:</p>
+    <input type="number" id="ipt_continuada">
+    <p>Insira a nota da avaliação de pesquisa e inovação:</p>
+    <input type="number" id="ipt_pi">
+    <br>
+    <br>
+    <button onclick="calcular()">Calcular média</button>
+    <br>
+    <p id="p_mensagem"></p>
+</body>
+</html>
+<script>
+    function calcular() {
+        p_mensagem.innerHTML = ("A média de " + ipt_nome.value + " será de " + ((Number(ipt_continuada.value) * 0.4) + (Number(ipt_pi.value)) * 0.6));
+    }
+</script>

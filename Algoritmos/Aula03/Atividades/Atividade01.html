@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira a sua idade:</p>
+    <input type="number" id="ipt_idade">
+    <button onclick="aposentadoriaHomem()">Aposentadoria Homem</button>
+    <button onclick="aposentadoriaMulher()">Aposentadoria Mulher</button>
+</body>
+</html>
+<script>
+    function aposentadoriaHomem() {
+        alert("Anos que faltam para se aposentar: " + (70 - Number(ipt_idade.value)));
+    }
+    function aposentadoriaMulher() {
+        alert("Anos que faltam para se aposentar: " + (60 - Number(ipt_idade.value)));
+    }
+</script>

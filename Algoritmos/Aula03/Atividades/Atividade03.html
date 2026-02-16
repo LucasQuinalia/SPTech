@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o valor da passagem:</p>
+    <input type="number" id="ipt_valor_passagem">
+    <p>Insira o número de viagens mensais:</p>
+    <input type="number" id="ipt_viagens_mensais">
+    <br>
+    <br>
+    <button onclick="economia()">Ver economia</button>
+</body>
+</html>
+<script>
+    function economia() {
+        alert("Você economizará R$" + ((Number(ipt_viagens_mensais.value) * Number(ipt_valor_passagem.value)) / 2) + " por mês");
+    }
+</script>

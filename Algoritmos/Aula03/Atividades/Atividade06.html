@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o primeiro número:</p>
+    <input type="number" id="ipt_n1">
+    <p>Insira o segundo número:</p>
+    <input type="number" id="ipt_n2">
+    <br>
+    <br>
+    <button onclick="soma()">Somar</button>
+    <button onclick="subtracao()">Subtrair</button>
+    <button onclick="multiplicacao()">Multiplicar</button>
+    <button onclick="divisao()">Dividir</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    function soma() {
+        p_resultado.innerHTML = ("A soma entre " + ipt_n1.value + " e " + ipt_n2.value + " é " + (Number(ipt_n1.value) + Number(ipt_n2.value)));
+    }
+    function subtracao() {
+        p_resultado.innerHTML = ("A diferença entre " + ipt_n1.value + " e " + ipt_n2.value + " é " + (Number(ipt_n1.value) - Number(ipt_n2.value)));
+    }
+    function multiplicacao() {
+        p_resultado.innerHTML = ("O produto entre " + ipt_n1.value + " e " + ipt_n2.value + " é " + (Number(ipt_n1.value) * Number(ipt_n2.value)));
+    }
+    function divisao() {
+        p_resultado.innerHTML = ("A razão entre " + ipt_n1.value + " e " + ipt_n2.value + " é " + (Number(ipt_n1.value) / Number(ipt_n2.value)));
+    }
+</script>
