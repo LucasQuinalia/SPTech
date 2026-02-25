@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o saldo da conta:</p>
+    <input type="text" id="ipt_saldo">
+    <p>Insira o valor do débito:</p>
+    <input type="text" id="ipt_debito">
+    <br>
+    <br>
+    <button onclick="calcular()">Analisar conta</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    function calcular() {
+        let saldo = Number(ipt_saldo.value) - Number(ipt_debito.value);
+
+        let msg = `O saldo atual da conta corrente é ${saldo}`;
+
+        saldo >= 0 ? 
+        p_resultado.innerHTML = `
+            <p style='color: blue'>
+                <i>
+                    ${msg}
+                </i>
+            </p>
+        `
+        : p_resultado.innerHTML = `
+            <p style='color: red'>
+                <strong>
+                    ${msg}
+                </strong>
+            </p>
+        `;
+    }
+</script>

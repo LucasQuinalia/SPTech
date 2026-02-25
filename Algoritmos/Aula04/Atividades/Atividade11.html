@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira a quantidade de filhos:</p>
+    <input type="text" id="ipt_qtd">
+    <br>
+    <button onclick="calcular()">Analisar família</button>
+    <p id="p_r"></p>
+</body>
+</html>
+<script>
+    function calcular() {
+        let qtd = Number(ipt_qtd.value);
+
+        p_r.innerHTML = '';
+
+        qtd >= 1 ? p_r.innerHTML += "Não tem TV" : '';
+        qtd >= 2 ? p_r.innerHTML += "<br>Não tem internet" : '';
+        qtd >= 3 ? p_r.innerHTML += "<br>Não tem vídeo game" : '';
+        qtd >= 4 ? p_r.innerHTML += "<br>Não tem Netflix" : '';
+    }
+</script>

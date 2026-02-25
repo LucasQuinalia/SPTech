@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira a primeira nota do aluno:</p>
+    <input type="text" id="ipt_n1">
+    <p>Insira a segunda nota do aluno:</p>
+    <input type="text" id="ipt_n2">
+    <br>
+    <button onclick="calcular()">Verificar situação</button>
+</body>
+</html>
+<script>
+    function calcular() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let m = (n1 + n2) / 2;
+
+        m >= 6 ? alert("Parabéns, aprovado!") : alert("Tente outra vez...");
+    }
+</script>
