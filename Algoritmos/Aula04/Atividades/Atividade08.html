@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira a quantidade de homens que entraram no elevador:</p>
+    <input type="text" id="ipt_h">
+    <p>Insira a quantidade de mulheres que entraram no elevador:</p>
+    <input type="text" id="ipt_m">
+    <br>
+    <br>
+    <button onclick="peso()">Analisar peso</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    function peso() {
+        let peso = (Number(ipt_h.value) * 80) + (Number(ipt_m.value) * 60);
+
+        p_resultado.innerHTML = `Este elevador suporta 800Kg e o peso estimado desta lotação é de ${peso.toFixed(2)}Kg`
+
+        peso <= 800 ? '' : p_resultado.innerHTML += `
+            <p style='color: blue'>
+                Será necessário que alguém desça para que o elevador se movimente
+            </p>
+        `;
+    }
+</script>

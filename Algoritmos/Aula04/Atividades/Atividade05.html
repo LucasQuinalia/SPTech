@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>INsira a quantidade de KWh consumida no mês:</p>
+    <input type="text" id="ipt_consumo">
+    <button onclick="calcular()">Calcular conta de luz</button>
+</body>
+</html>
+<script>
+    function calcular() {
+        let consumo = Number(ipt_consumo.value);
+        let conta = consumo * 0.85;
+
+        if (consumo < 100) {
+            conta *= 0.9;
+        }
+
+        alert(`O valor da conta de luz é de R$${conta.toFixed(2)}`);
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira a quantidade de latinhas bebidas por dia:</p>
+    <input type="text" id="ipt_latinhas">
+    <button onclick="calcular()">Quantos refris?</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    function calcular() {
+        let qtd = (Number(ipt_latinhas.value) * 365);
+
+        p_resultado.innerHTML = `Quantidade de latinhas consumidas por ano: ${qtd}`;
+
+        if (qtd >= 500) {
+            p_resultado.innerHTML += `
+                <br>
+                Cuidado com a diabetes!
+            `;
+        }
+    }
+</script>

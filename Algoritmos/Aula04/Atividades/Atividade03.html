@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o valor da nota 1:</p>
+    <input type="text" id="ipt_n1">
+    <p>Insira o valor da nota 2:</p>
+    <input type="text" id="ipt_n2">
+    <p>Insira o valor da nota 3:</p>
+    <input type="text" id="ipt_n3">
+    <br>
+    <button onclick="calcular()">Analisar desempenho</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    function calcular() {
+        let n1 = Number(ipt_n1.value);
+        let n2 = Number(ipt_n2.value);
+        let n3 = Number(ipt_n3.value);
+
+        let m = (n1 + n2 + n3) / 3;
+
+        p_resultado.innerHTML = `Sua média foi de ${m.toFixed(2)}`;
+
+        if (m > 9.4) {
+            p_resultado.innerHTML += `
+                <br>
+                Parabéns, você é fora de série!
+            `;
+        }
+    }
+</script>
