@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Calculadora SPFlix</h1>
+
+  <div>
+      <p>Qualidade (720p ou 1080p ou 4K):</p>
+      <input type="text" id="ipt_qualidade">
+  </div>
+
+  <div style="display: flex; gap: 50px">
+    <div>
+      <p>Telas simultâneas - Na mesma casa:</p>
+      <input type="text" id="ipt_qtd_telas">
+    </div>
+
+    <div>
+      <p>Telas extras - Fora da residência:</p>
+      <input type="text" id="ipt_qtd_telas_extras">
+    </div>
+  </div>
+
+  <div>
+    <p>Quer fazer download ('sim' ou 'nao'):</p>
+    <input type="text" id="ipt_download">
+  </div>
+
+  <p></p>
+  <button onclick="exibirResultado()">Exibir Resultado</button>
+
+  <p></p>
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+function exibirResultado() {
+    let qualidade = ipt_qualidade.value;
+    let precoBase = 0;
+
+    if (qualidade == '720p') {
+        precoBase = 15;
+    } else if (qualidade == '1080p') {
+        precoBase = 20;
+    } else {
+        precoBase = 25;
+    }
+
+    div_mensagem.innerHTML = `O valor base do seu plano é R$${precoBase.toFixed(2)}`;
+
+    let qtdTelas = Number(ipt_qtd_telas.value);
+    let qtdTelasExtras = Number(ipt_qtd_telas_extras.value);
+    let qtdTelasTotais = qtdTelas + qtdTelasExtras;
+    let precoTelas = 0;
+
+    if (qtdTelas <= 2) {
+        precoTelas = 10;
+    } else if (qtdTelas <= 4) {
+        precoTelas = 20;
+    } else {
+        precoTelas = 30;
+    }
+
+    precoTelas = precoTelas + (12.90 * qtdTelasExtras);
+
+    div_mensagem.innerHTML += `<br>O valor das telas do seu plano é R$${precoTelas.toFixed(2)}`;
+
+    precoFinal = precoBase + precoTelas;
+
+    div_mensagem.innerHTML += `<br>Valor final: R$${precoFinal.toFixed(2)}`;
+
+    let precoPorPessoa = 0;
+
+    if (qtdTelasTotais > 0) {
+      precoPorPessoa = precoFinal / qtdTelasTotais;
+
+      div_mensagem.innerHTML += `<br>Se quiser dividir fica R$${precoPorPessoa.toFixed(2)} para cada!`;
+    }
+}
+</script>
