@@ -6,22 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>Insira o sabor da pizza:</p>
+    <input type="text" id="ipt_sabor_pizza">
+    <p>Insira o valor da pizza:</p>
+    <input type="text" id="ipt_valor_pizza">
+    <p>Insira a quantidade de amigos:</p>
+    <input type="text" id="ipt_quantidade_amigos">
+    <br>
+    <button onclick="lovePizza()">Ver valor por amigo</button>
+    <p id="p_resultado"></p>
 </body>
 </html>
+<script>
+    function lovePizza() {
+        let valor = Number(ipt_valor_pizza.value);
+        let qtd = Number(ipt_quantidade_amigos.value);
 
-Todo mundo gosta de pizza! É um prato super democrático, pois existem sabores veganos, vegetarianos, sem glúten, "low carb" (pouco carboidrato), doces etc.   
+        let r = (valor * 1.1) / qtd;
 
-Crie um programa o qual:  
-
-a) Solicite o sabor e o preço da pizza;  
-
-b) Solicite a quantidade de amigos que vão comer;  
-
-c) Ao clicar num botão "Ver valor por amigo", calcule e exiba na tela uma frase como esta:  
-
-    Cada amigo vai colaborar com R$X para a pizza de Y.  
-
-Obs: inclua no valor da pizza a caixinha do entregador que é sempre 10% do valor da pizza.  
-
-Obs²: Y é o sabor da pizza;  
+        p_resultado.innerHTML = `Cada amigo vai colaborar com R$${r.toFixed(2)} para a pizza de ${ipt_sabor_pizza.value}`;
+    }
+</script>

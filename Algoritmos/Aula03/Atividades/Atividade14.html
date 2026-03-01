@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o ki base:</p>
+    <input type="text" id="ipt_ki">
+    <p>Transformar sem...</p>
+    <br>
+    <button onclick="ssj()">SSJ</button>
+    <button onclick="ssj2()">SSJ2</button>
+    <button onclick="ssj3()">SSJ3</button>
+    <p id="p_r"></p>
+</body>
+</html>
+<script>
+    function ssj() {
+        let ki = Number(ipt_ki.value);
+        ki *= 50;
+        p_r.innerHTML = `Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${ki}`;
+    }
+    
+    function ssj2() {
+        let ki = Number(ipt_ki.value);
+        ki *= 100;
+        p_r.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${ki}`;
+    }
+    
+    function ssj3() {
+        let ki = Number(ipt_ki.value);
+        ki *= 200;
+        p_r.innerHTML = `Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${ki}`;
+    }
+
+</script>
