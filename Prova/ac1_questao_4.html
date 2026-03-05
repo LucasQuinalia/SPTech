@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Questão 4</title>
+</head>
+<body>
+   <h2>Questão 4</h2>
+   <span>Quantidade de m³ de gás consumidos:</span>
+   <input type="text" id="input_metros"> <br>
+
+   <span>Tipo de Sistema: "GN" (Gás Natural) ou "GLP" (Gás de Botijão)</span>
+   <input type="text" id="input_sistema"> <br>
+
+   <span>Valor da Taxa de Instalação Fixa em Reais: </span>
+   <input type="text" id="input_taxa"> <br>
+
+   <button onclick="calcular()">Calcular Despesa</button>
+
+   <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+/* Faça sua lógica aqui! Não altere o HTML. */
+let contagem = 0;
+
+function calcular() {
+   let gas = Number(input_metros.value);
+   let sistema = input_sistema.value;
+   let nomeSistema = '';
+   let taxa = Number(input_taxa.value);
+   let valorBase = 0;
+   
+   if (sistema == 'GN') {
+      if (gas <= 20) {
+         valorBase = gas * 6;
+      } else {
+         valorBase = gas * 8;
+      }
+      nomeSistema = 'Gás Natural';
+   } else {
+      if (gas <= 20) {
+         valorBase = gas * 5;
+      } else {
+         valorBase = gas * 7.5;
+      }
+      nomeSistema = 'Gás de Botijão';
+   }
+
+   contagem += 1;
+
+   let valorFinal = valorBase + taxa;
+   let porcentagemTaxa = (taxa * 100) / valorFinal;
+
+   div_mensagem.innerHTML += `
+      <br> Simulação ${contagem}: 
+      <br> Sistema de ${nomeSistema} - O valor final é R$ ${valorFinal}. A taxa fixa de R$ ${taxa} representou ${porcentagemTaxa}% do total bruto.
+      <br>
+   `;
+}
+</script>
