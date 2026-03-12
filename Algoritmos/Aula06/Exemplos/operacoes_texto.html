@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_texto" oninput="analisar()">
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        let texto = ipt_texto.value;
+        let tamanho_texto = texto.length;
+    
+        div_mensagem.innerHTML = `O tamanho do texto é: ${tamanho_texto}`;
+        
+        if (tamanho_texto >= 8) {
+            div_mensagem.innerHTML += `<br>O texto tem 8 ou mais caracteres`;
+        } else {
+            div_mensagem.innerHTML += `<br>O texto tem menos de 8 caracteres`;
+        }
+
+        let indice_ponto_com = texto.indexOf('.com');
+        div_mensagem.innerHTML += `<br>Índice do .com: ${indice_ponto_com}`;
+
+        let indice_arroba = texto.indexOf('@');
+        let arroba_antes_ponto_com = indice_arroba < indice_ponto_com - 1;
+
+        let termina_com_ponto_com = texto.endsWith('.com');
+        let termina_com_ponto_com_ponto_br = texto.endsWith('.com.br');
+        
+        if (arroba_antes_ponto_com && indice_arroba > -1 && indice_ponto_com > -1 && (termina_com_ponto_com || termina_com_ponto_com_ponto_br)) {
+            div_mensagem.innerHTML += `<br>É um e-mail válido`;
+        } else {
+            div_mensagem.innerHTML += `<br>Não é um e-mail válido`;
+        }
+
+        if (tamanho_texto > 0) {
+            let primeira_letra = texto[0];
+            let ultima_letra = texto[tamanho_texto - 1];
+    
+            div_mensagem.innerHTML += `<br>Primeira Letra: ${primeira_letra}`;
+            div_mensagem.innerHTML += `<br>Última Letra: ${ultima_letra}`;
+        }
+
+        let tem_sptech = texto.includes('sptech');
+
+        if (tem_sptech) {
+            div_mensagem.innerHTML += `<br>${tem_sptech}`;
+        } else {
+            div_mensagem.innerHTML += `<br>Não tem ${tem_sptech}`;
+        }
+
+        let texto_apenas_minusculas = texto.toLowerCase();
+        let texto_apenas_maiusculas = texto.toUpperCase();
+
+        div_mensagem.innerHTML += `<br>Apenas minúsculas: ${texto_apenas_minusculas}`;
+        div_mensagem.innerHTML += `<br>Apenas maiúsculas: ${texto_apenas_maiusculas}`;
+
+        let frase = texto[0].toUpperCase() + texto.substring(1).toLowerCase();
+
+        div_mensagem.innerHTML += `<br>Frase final: ${frase}`;
+    }
+</script>

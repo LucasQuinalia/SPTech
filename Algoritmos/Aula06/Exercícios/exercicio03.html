@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o tipo do passageiro:</p>
+    <select id="ipt_passageiro">
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="idoso/pne">Idoso/PNE</option>
+    </select>
+    <p>Insira o tipo da passagem:</p>
+    <select id="ipt_passagem">
+        <option value="unica">Passagem única</option>
+        <option value="integracao">Passagem integração</option>
+    </select>
+    <br>
+    <br>
+    <button onclick="simular()">Simular preço</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    function simular() {
+        let passageiro = ipt_passageiro.value;
+        let passagem = ipt_passagem.value;
+
+        let valor;
+
+        if (passageiro == 'estudante') {
+            if (passagem == 'unica') {
+                valor = 4.4 * 0.5;
+            } else {
+                valor = 5.9 * 0.5;
+            }
+        } else if (passageiro = 'comum') {
+           if (passagem == 'unica') {
+                valor = 4.4;
+            } else {
+                valor = 5.9;
+            }         
+        } else {
+            valor = 'Gratuito';
+        }
+        
+        p_resultado.innerHTML = `Valor da passagem escolhida: R$ ${valor}`;
+    }
+</script>

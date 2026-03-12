@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Dê uma nota para o atendimento recebido:</p>
+    <input type="text" id="ipt_nota">
+    <br>
+    <br>
+    <button onclick="avaliar()">Avaliar atendimento</button>
+    <p id="p_resposta"></p>
+</body>
+</html>
+<script>
+    function avaliar() {
+        let nota = ipt_nota.value;
+
+        if (nota > 10 || nota < 0) {
+            p_resposta.innerHTML = 'Nota inválida';
+        } else if (nota < 5) {
+            p_resposta.innerHTML = 'Não aprovado';
+        } else if (nota < 7) {
+            p_resposta.innerHTML = 'Neutro';
+        } else {
+            p_resposta.innerHTML = 'Aprovado';
+        }
+     }
+</script>
