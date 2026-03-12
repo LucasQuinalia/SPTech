@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="ipt_cor">
+        <option value=""></option>
+        <option value="Azul">Azul</option>
+        <option value="Amarelo">Amarelo</option>
+        <option value="Vermelho">Vermelho</option>
+        <option value="Verde">Verde</option>
+        <option value="Rosa">Rosa</option>
+    </select>
+    <button onclick="selecionar()">Qual cor?</button>
+</body>
+</html>
+<script>
+    function selecionar() {
+        let cor = ipt_cor.value;
+
+        if (cor == 'azul')
+        alert(ipt_cor.value);
+    }
+</script>
