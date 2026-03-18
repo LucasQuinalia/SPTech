@@ -6,26 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Dê uma nota para o atendimento recebido:</p>
+    <p>Insira a nota do atendimento:</p>
     <input type="text" id="ipt_nota">
     <br>
-    <br>
     <button onclick="avaliar()">Avaliar atendimento</button>
-    <p id="p_resposta"></p>
+    <p id="p_mensagem"></p>
 </body>
 </html>
 <script>
     function avaliar() {
-        let nota = ipt_nota.value;
+        let nota = Number(ipt_nota.value);
+        let mensagem;
 
         if (nota > 10 || nota < 0) {
-            p_resposta.innerHTML = 'Nota inválida';
+            mensagem = 'Nota inválida';
         } else if (nota < 5) {
-            p_resposta.innerHTML = 'Não aprovado';
+            mensagem = 'Não aprovado';
         } else if (nota < 7) {
-            p_resposta.innerHTML = 'Neutro';
+            mensagem = 'Neutro';
         } else {
-            p_resposta.innerHTML = 'Aprovado';
+            mensagem = 'Aprovado';
         }
-     }
-</script>
+
+        p_mensagem.innerHTML = `${mensagem}`;
+    }
+</script> 

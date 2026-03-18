@@ -6,24 +6,44 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>Insira a nota do aluno:</p>
+    <input type="text" id="ipt_nota">
+    <p>Insira a frequência do aluno:</p>
+    <input type="text" id="ipt_frequencia">
+    <br>
+    <button onclick="analisar()">Analisar aluno</button>
+    <p id="p_mensagem"></p>
 </body>
 </html>
+<script>
+    function analisar() {
+        let nota = Number(ipt_nota.value);
+        let frequencia = Number(ipt_frequencia.value);
 
-Crie um programa que avalie o desempenho de um aluno, o qual: 
-
-a) Solicite a nota e a frequência do aluno 
-
-b) Ao clicar em "Analisar aluno", faça as seguintes ações... 
-
-c) Caso a nota não seja válida, ou seja, caso não esteja entre 0 e 10, exiba um alert "Onde já se viu nota <0 ou >10?!" e limpe qualquer outro resultado que já estiver aparecendo na tela 
-
-d) Caso a frequência não seja válida, ou seja, caso não esteja entre 0 e 100, exiba um alert "Onde já se viu frequência <0 ou >100?!" e limpe qualquer outro resultado que já estiver aparecendo na tela 
-
-e) Caso a nota estiver entre 0 e menor que 6, exiba na tela essa frase: "Aluno ficou abaixo da média" 
-
-f) Caso a nota estiver entre 6 e 8, exiba na tela essa frase: "Aluno ficou na média" 
-
-g) Caso a nota estiver entre mais que 8 e 10, exiba na tela essa frase: "Aluno acima da média" 
-
-h) Caso o aluno tiver frequência a partir de 75, exiba na tela "Aluno aprovado por frequência" ou "Aluno reprovado por frequência", em caso contrário 
+        if (nota > 10 || nota < 0) {
+            alert('Onde já se viu nota <0 ou >10?!');
+            p_mensagem.innerHTML = '';
+        } else if (frequencia > 100 || frequencia < 0) {
+            alert('Onde já se viu frequência <0 ou >100?!');
+            p_mensagem.innerHTML = '';
+        } else if (frequencia >= 75) {
+            if (nota < 6 && frequencia >= 75) {
+                p_mensagem.innerHTML += '<br>Aluno ficou abaixo da média';
+            } else if (nota < 9) {
+                p_mensagem.innerHTML += '<br>Aluno ficou na média';
+            } else {
+                p_mensagem.innerHTML += '<br>Aluno acima da média';
+            } 
+            p_mensagem.innerHTML += '<br>Aluno aprovado por frequência<br>';
+        } else {
+            if (nota < 6) {
+                p_mensagem.innerHTML += '<br>Aluno ficou abaixo da média';
+            } else if (nota < 9) {
+                p_mensagem.innerHTML += '<br>Aluno ficou na média';
+            } else {
+                p_mensagem.innerHTML += '<br>Aluno acima da média';
+            }
+            p_mensagem.innerHTML += '<br>Aluno reprovado por frequência<br>';
+        }
+    }
+</script>

@@ -8,29 +8,22 @@
 <body>
     <p>Insira o tamanho da tela do celular:</p>
     <input type="text" id="ipt_tamanho">
-    <p>Insira a cor do celular:</p>
-    <select name="" id="ipt_cor">
-        <option value=""></option>
-        <option value="preto">Preto</option>
-        <option value="prata">Prata</option>
-        <option value="azul">Azul</option>
-        <option value="vermelho">Vermelho</option>
-    </select>
+    <p>Insira a vor do celular:</p>
+    <input type="text" id="ipt_cor">
     <br>
-    <br>
-    <button onclick="gosta()">Será que ele gosta?</button>
-    <div id="div_resultado"></div>
+    <button onclick="verificar()">Será que ele gosta?</button>
+    <div id="div_mensagem"></div>
 </body>
 </html>
 <script>
-    function gosta() {
+    function verificar() {
         let tamanho = Number(ipt_tamanho.value);
         let cor = ipt_cor.value;
-        
-        if (tamanho >= 6.5 && (cor == 'preto' || cor == 'prata')) {
-            div_resultado.innerHTML = '<img src="laugh.jpg" width="400px">';
+
+        if (tamanho > 6.5 && (cor == 'Preto' || cor == 'Prata')) {
+            div_mensagem.innerHTML = `<img src='laugh.jpg' width='400px'>`;
         } else {
-            div_resultado.innerHTML = '<img src="sad.png" width="400px">';
+            div_mensagem.innerHTML = `<img src='sad.png' width='400px'>`;
         }
     }
 </script>

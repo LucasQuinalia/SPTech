@@ -6,16 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>Insira o seu login:</p>
+    <input type="text" id="ipt_login">
+    <p>Insira o seu senha:</p>
+    <input type="text" id="ipt_senha">
+    <p>Insira o seu ano de nascimento ou o nome do seu animal de estimação:</p>
+    <input type="text" id="ipt_info">
+    <br>
+    <button onclick="autenticar()">Autenticar</button>
+    <p id="p_mensagem"></p>
 </body>
 </html>
+<script>
+    function autenticar() {
+        let login = ipt_login.value;
+        let senha = ipt_senha.value;
+        let info = ipt_info.value;
 
-Um novo banco eletrônico, o Banco Melete possui um sistema diferenciado de autenticação no qual pede um login, uma senha e uma 3ª informação pessoal, que pode ser o ano de nascimento ou o nome do animal de estimação do cliente. Crie um protótipo que simule a autenticação de um determinado cliente, o qual: 
-
-a) Solicite o login, a senha e a informação pessoal ao usuário 
-
-b) Ao clicar num botão "Autenticar", exiba uma dessas frases abaixo do botão: 
-
-     b.1.) "Usuário autenticado", caso o login seja "ana", a senha "braga" e a informação pessoal for ou "1949" ou "louro josé" 
-
-     b.2.) "Falha na autenticação", caso as regras de verificação em b.1) falhem 
+        if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')) {
+            p_mensagem.innerHTML = `Usuário autenticado`;
+        } else {
+            p_mensagem.innerHTML = `Falha na autenticação`;
+        }
+    }
+</script>
