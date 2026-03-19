@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Insira o nome do lugar:</p>
+    <input type="text" id="ipt_lugar">
+    <p>Insira o valor gasto na viagem:</p>
+    <input type="text" id="ipt_valor">
+    <br>
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <br>
+    <input type="text" id="ipt_busca">
+    <br>
+    <br>
+    <button onclick="buscar()">Buscar</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    let lugares = [];
+    let valores = [];
+    function cadastrar() {
+        lugares.push(ipt_lugar.value);
+        valores.push(Number(ipt_valor.value));
+    }
+
+    function buscar() {
+        let busca = ipt_busca.value;
+
+        let ja_visitou = lugares.includes(busca);
+
+        if (!ja_visitou) {
+            p_resultado.innerHTML = `Você nunca visitou ${busca}`;
+        } else {
+            let primeira_visita = lugares.indexOf(busca);
+            let ultima_visita = lugares.lastIndexOf(busca);
+
+            let visitou_so_uma_vez = primeira_visita == ultima_visita;
+            
+            if (visitou_so_uma_vez) {
+                p_resultado.innerHTML = `Você já visitou ${busca} e gastou ${valores[primeira_visita]}`;
+            } else {
+                p_resultado.innerHTML = `Você já visitou ${busca} e gastou ${valores[primeira_visita]} da primeira vez e ${valores[ultima_visita]} da última vez`;
+            }
+        } 
+    }
+</script>

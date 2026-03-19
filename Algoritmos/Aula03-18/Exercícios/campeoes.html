@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Palpites</h1>
+    <p>Insira o nome de quem você acredita ser o primeiro colocado da competição</p>
+    <input type="text" id="ipt_primeiro">
+    <p>Insira o nome de quem você acredita ser o segundo colocado da competição</p>
+    <input type="text" id="ipt_segundo">
+    <p>Insira o nome de quem você acredita ser o terceiro colocado da competição</p>
+    <input type="text" id="ipt_terceiro">
+    <p>Insira o nome de quem você acredita ser o quarto colocado da competição</p>
+    <input type="text" id="ipt_quarto">
+    <p>Insira o nome de quem você acredita ser o quinto colocado da competição</p>
+    <input type="text" id="ipt_quinto">
+    <br>
+    <br>
+    <button onclick="verificar()">Exibir resultado</button>
+    <p id="p_acertos">Você acertou os campeões: </p>
+    <p id="p_erros">Você errou nos palpites: </p>
+    <p id="p_resultado"></p>
+    <p id="p_campeao"></p>
+    <h2>Meus Campeões</h2>
+    <p>Insira o nome dos seus campeões, um de cada vez:</p>
+    <input type="text" id="ipt_novo">
+    <br>
+    <br>
+    <button onclick="adicionarCampeao()">Adicionar</button>
+    <p id="p_meus_campeoes"></p>
+    <h2>Pesquisar campeões</h2>
+    <input type="text" id="ipt_busca">
+    <br>
+    <br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <p id="p_pesquisa"></p>
+</body>
+</html>
+<script>
+    let campeoes = ['Ash', 'Solis', 'Vigil', 'Maverick', 'Striker'];
+    let palpites = [ipt_primeiro.value, ipt_segundo.value, ipt_terceiro.value, ipt_quarto.value, ipt_quinto.value];
+    let resultados = [palpites[0] == campeoes[0], palpites[1] == campeoes[1], palpites[2] == campeoes[2], palpites[3] == campeoes[3], palpites[4] == campeoes[4]];
+
+    let acertos = 0;
+    let erros = 0;
+
+    function verificar() {
+        resultados[0] ? (acertos++, p_acertos.innerHTML += `${palpites[0]}`) : (erros++, p_erros.innerHTML += `${palpites[0]}`);
+        resultados[1] ? (acertos++, p_acertos.innerHTML += ` ${palpites[1]}`) : (erros++, p_erros.innerHTML += ` ${palpites[1]}`);
+        resultados[2] ? (acertos++, p_acertos.innerHTML += ` ${palpites[2]}`) : (erros++, p_erros.innerHTML += ` ${palpites[2]}`);
+        resultados[3] ? (acertos++, p_acertos.innerHTML += ` ${palpites[3]}`) : (erros++, p_erros.innerHTML += ` ${palpites[3]}`);
+        resultados[4] ? (acertos++, p_acertos.innerHTML += ` ${palpites[4]}`) : (erros++, p_erros.innerHTML += ` ${palpites[4]}`);
+        
+        if (acertos > erros) {
+            p_resultado.innerHTML = 'Você conhece bem essa competição!';
+        } else {
+            p_resultado.innerHTML = 'Você precisa acompanhar mais essa competição!';
+        }
+
+        p_campeao.innerHTML = `O campeão(a) é ${campeoes[0].toUpperCase()} 🥇`;
+        p_campeao.innerHTML += `<br>O segundo colocado é ${campeoes[1]}`;
+        p_campeao.innerHTML += `<br>O terceiro colocado é ${campeoes[2]}`;
+        p_campeao.innerHTML += `<br>O quarto colocado é ${campeoes[3]}`;
+        p_campeao.innerHTML += `<br>O quinto colocado é ${campeoes[4]}`;
+    }
+
+    let novos_campeoes = [];
+    let contador = 0;
+    
+    function adicionarCampeao() {
+        let novo_campeao = ipt_novo.value;
+
+        novos_campeoes.push(novo_campeao);
+        p_meus_campeoes.innerHTML += `<br> ${novo_campeao}`;
+        contador++;
+    }
+
+    function pesquisar() {
+        let busca = ipt_busca.value;
+
+        let presente_lista = novos_campeoes.includes(busca);
+        let presente_ranking = campeoes.includes(busca);
+
+        presente_lista ? p_pesquisa.innerHTML = `O campeão ${busca} está na sua lista.` : '';
+        presente_ranking ? p_pesquisa.innerHTML = `O campeão ${busca} está no ranking do sistema.` : '';
+        presente_lista && presente_ranking ? p_pesquisa.innerHTML = `O campeão ${busca} está na sua lista e no ranking do sistema.`: '';
+        !presente_lista && !presente_ranking ? p_pesquisa.innerHTML = `O campeão ${busca} não está em nenhuma das listas.` : '';
+    }
+</script>

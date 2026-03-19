@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Cadastrar aluno:</p>
+    <input type="text" id="ipt_cadastrar_aluno">
+    <br>
+    <br>
+    <button onclick="cadastrar()">Cadastrar Aluno</button>
+    <p>Remover aluno:</p>
+    <input type="text" id="ipt_remover_aluno">
+    <br>
+    <br>
+    <button onclick="remover()">Remover Aluno</button>
+    <br>
+    <br>
+    <button onclick="exibir()">Exibir Alunos</button>
+    <br>
+    <br>
+    <button onclick="atualizar()">Atualizar Aluno</button>
+    <p id="p_resultado"></p>
+</body>
+</html>
+<script>
+    let alunos = [];
+
+    function cadastrar() {
+        let cadastro = ipt_cadastrar_aluno.value;
+
+        if (cadastro == '') {
+            p_resultado.innerHTML = `Preencha o campo de cadastro de aluno`;
+        } else if (alunos.includes(cadastro)) {
+            p_resultado.innerHTML = `Aluno já cadastrado`;
+        } else {
+            p_resultado.innerHTML = `Aluno ${cadastro} foi cadastrado(a) com sucesso!`;
+            alunos.push(cadastro);
+        }
+    }   
+    
+    function remover() {
+        let remocao = ipt_remover_aluno.value;
+
+        if (remocao == '') {
+            p_resultado.innerHTML = `Preencha o campo de remoção de aluno`;
+        } else if (!alunos.includes(remocao)) {
+            p_resultado.innerHTML = `Aluno não encontrado na lista`;
+        } else {
+            p_resultado.innerHTML = `Aluno ${remocao} foi removido(a) com sucesso!`;
+            alunos.splice(remocao, 1);
+        }
+    }
+
+    function exibir() {
+        if (alunos.length == 0) {
+            p_resultado.innerHTML = `Nenhum aluno cadastrado na lista`;
+        } else {
+            p_resultado.innerHTML = alunos;
+        }
+    }
+
+    function atualizar() {
+        let cadastro = ipt_cadastrar_aluno.value;
+        let remocao = ipt_remover_aluno.value;
+
+        if (cadastro == '' && remocao == '') {
+            p_resultado.innerHTML = `Preencha os campos de cadastro e remoção de aluno`;
+        } else if (cadastro == remocao) {
+            p_resultado.innerHTML = `Nada na lista foi alterado`;
+        } else if (!alunos.includes(cadastro) && !alunos.includes(remocao)) {
+            p_resultado.innerHTML = `Aluno ${cadastro} foi cadastrado(a) com sucesso!`;
+            alunos.push(cadastro);
+        } else if (alunos.includes(cadastro) && alunos.includes(remocao)) {
+            p_resultado.innerHTML = `Aluno ${remocao} foi removido(a) com sucesso!`;
+            alunos.splice(remocao, 1);
+        } else {
+            p_resultado.innerHTML = `O aluno ${cadastro} foi atualizado com sucesso!`;
+            alunos.splice(alunos.indexOf(remocao), 1, cadastro);
+        }
+    }
+</script>

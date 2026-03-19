@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let frutas = ['Abacate', 'Uva', 'Maçã', 7, 8.9];
+    console.log(frutas);
+    console.log('Tamanho do vetor: ', frutas.length);
+    console.log('Primeiro item do vetor: ', frutas[0]);
+    
+    let ultima_fruta = frutas[frutas.length - 1];
+    console.log('Último item do vetor: ', ultima_fruta);
+    
+    frutas.push('Goiaba', 'Pêra');
+    console.log(frutas);
+
+    let existe_pera = frutas.includes('Pêra');
+    let indice_pera = frutas.indexOf('Pêra');
+
+    if (existe_pera) {
+        console.log(`Existe pêra na lista no índice ${indice_pera}!`);
+    } else {
+        console.log('Não existe pêra na lista');
+    }
+
+    frutas.pop();
+    frutas.shift();
+    frutas.splice(2, 1, 'Tomate');
+    frutas.unshift('Laranja');
+
+    console.log(frutas);
+</script>
